@@ -23,13 +23,15 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r api/requirements.txt
-        pip install pytest flake8 requests
+        pip install pytest requests flake8
 
-    - name: Static Code Analysis
-      run: flake8 api || true
+    - name: Start API server
+      run: |
+        python api/app.py &
+        sleep 5
 
     - name: Run Tests
       run: pytest
 
-    - name: Build Docker Image
-      run: docker build -t devops-api -f docker/Dockerfile .
+    - name: Static Code Analysis
+      run: flake8 api || true
