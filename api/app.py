@@ -19,8 +19,8 @@ def health():
 def users():
     return jsonify({
         "users": [
-            {"id": 1, "name": "Alice"},
-            {"id": 2, "name": "Bob"}
+            {"id": 1, "name": "oumaima"},
+            {"id": 2, "name": "horry"}
         ]
     })
 
